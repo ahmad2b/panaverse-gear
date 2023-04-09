@@ -1,5 +1,6 @@
 import React from "react";
 import DarkButton from "@/components/DarkButton";
+import Image from "next/image";
 
 const WhyChoose = () => {
   return (
@@ -9,8 +10,8 @@ const WhyChoose = () => {
           <h2 className="">Why Panaverse DAO?</h2>
           <p className="mt-3 ">
             Panaverse DAO is dedicated to providing high-quality, up-to-date,
-            and engaging courses to help you excel in the tech industry. Here's
-            why students choose us:
+            and engaging courses to help you excel in the tech industry.
+            Here&apos;s why students choose us:
           </p>
           {/* <p className="mt-5 inline-flex items-center gap-x-2 font-medium text-blue-600 dark:text-blue-500">
             Contact sales to learn more

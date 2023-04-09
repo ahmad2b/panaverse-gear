@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 
 interface UserProfileProps {
   id: number;
@@ -112,10 +113,12 @@ const UserProfile = ({
       <div className="rounded-xl bg-gray-800 bg-opacity-50 px-16 py-10 shadow-lg backdrop-blur-md max-sm:px-8">
         <div className="text-white shadow-md rounded p-6">
           <div className="flex items-center mb-4">
-            <img
+            <Image
               src={recievedUserDetails.profile_picture}
               alt={name}
               className="w-32 h-32 rounded-full mr-4"
+              width={128}
+              height={128}
             />
             <div>
               <h2 className="text-2xl font-semibold">

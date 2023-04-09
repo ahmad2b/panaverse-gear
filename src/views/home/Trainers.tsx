@@ -42,7 +42,7 @@ const Trainers = () => {
           </h3>
           <p className="text-gray-600 mt-3">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.Lorem Ipsum has been the industry's standard dummy.
+            industry.Lorem Ipsum has been the industry&apos;s standard dummy.
           </p>
         </div>
         <div className="mt-12">
@@ -50,10 +50,12 @@ const Trainers = () => {
             {team.map((item, idx) => (
               <li key={idx}>
                 <div className="w-24 h-24 mx-auto">
-                  <img
+                  <Image
                     src={item.avatar}
                     className="w-full h-full rounded-full"
                     alt=""
+                    width={150}
+                    height={150}
                   />
                 </div>
                 <div className="mt-2">
@@ -63,7 +65,7 @@ const Trainers = () => {
                   <p className="text-indigo-600">{item.title}</p>
                   {/* <p className="text-gray-600 mt-2">{item.desc}</p> */}
                   <div className="mt-4 flex justify-center gap-4 text-gray-400">
-                    <a href={item.twitter}>
+                    <Link href={item.twitter}>
                       <svg
                         className="w-5 h-5 duration-150 hover:text-gray-500"
                         fill="currentColor"
@@ -81,8 +83,8 @@ const Trainers = () => {
                           </clipPath>
                         </defs>
                       </svg>
-                    </a>
-                    <a href={item.linkedin}>
+                    </Link>
+                    <Link href={item.linkedin}>
                       <svg
                         className="w-5 h-5 duration-150 hover:text-gray-500"
                         fill="none"
@@ -100,7 +102,7 @@ const Trainers = () => {
                           </clipPath>
                         </defs>
                       </svg>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </li>

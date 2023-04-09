@@ -21,7 +21,7 @@ const DevDetails = async () => {
   return data;
 };
 
-const page = () => {
+const DevPage = () => {
   const [developer, setDeveloper] = useState<users[]>([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -60,4 +60,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default DevPage;

@@ -12,33 +12,10 @@ import {
   Updateable,
 } from "kysely";
 
-enum ApprovalStatus {
-  Pending = "pending",
-  Approved = "approved",
-  Rejected = "rejected",
-}
-
-interface users {
-  id?: number;
-  username: string;
-  email: string;
-  password: string;
-  profile_picture?: string;
-  skills?: string[];
-  projects?: string[];
-  awards?: string[];
-  social_media_links?: string[];
-  approval_status: ApprovalStatus;
-  role_id: number;
-}
-
-interface Role {
-  id: number;
-  name: string; // Developer or Moderator
-}
+import { SuperDevs } from "@/Types";
 
 interface Database {
-  users: users;
+  super_devs: SuperDevs;
 }
 
 const db = new Kysely<Database>({
@@ -55,14 +32,13 @@ export async function PUT(
   { params }: { params: { id: string } }
 ) {
   const userId = parseInt(params.id);
-  //   const status = (await request.json()) as ApprovalStatus;
   const { approval_status } = await request.json();
   console.log("PUT REQUEST MADE");
   console.log("userId", userId);
   console.log("Approval Status", approval_status);
 
   const result = await db
-    .updateTable("users")
+    .updateTable("super_devs")
     .set({ approval_status })
     .where("id", "=", userId)
     .returning("id")

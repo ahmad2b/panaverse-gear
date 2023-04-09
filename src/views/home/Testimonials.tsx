@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const Testimonials = () => {
   const testimonials = [
@@ -64,9 +65,12 @@ const Testimonials = () => {
                     </p>
                   </blockquote>
                   <div className="flex items-center gap-x-4 p-4 mt-6 rounded-b-xl bg-slate-100">
-                    <img
+                    <Image
                       src={item.avatar}
                       className="w-16 h-16 rounded-full border-2 border-slate-500"
+                      width={150}
+                      height={150}
+                      alt="avatar"
                     />
                     <div>
                       <span className="block text-gray-800 font-semibold">
