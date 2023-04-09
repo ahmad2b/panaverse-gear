@@ -1,24 +1,10 @@
 "use client";
 import { createContext, useContext, useState } from "react";
-
-interface User {
-  id: number;
-  name: string;
-  email: string;
-  password_hash: string;
-  public_name: string;
-  public_email: string;
-  bio: string;
-  profile_picture: string;
-  is_email_public: boolean;
-  is_name_public: boolean;
-  created_at: Date;
-  updated_at: Date;
-}
+import { SuperDevs } from "@/Types";
 
 interface UserContextType {
-  user: User | null;
-  setUser: React.Dispatch<React.SetStateAction<User | null>>;
+  user: SuperDevs | null;
+  setUser: React.Dispatch<React.SetStateAction<SuperDevs | null>>;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -32,7 +18,7 @@ export const useUser = () => {
 };
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<SuperDevs | null>(null);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

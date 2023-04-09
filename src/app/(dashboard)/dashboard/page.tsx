@@ -1,8 +1,8 @@
 import React from "react";
-import LoginPage from "@/views/login";
+import Dashboard from "./Dashboard";
 
 const page = () => {
-  return <LoginPage />;
+  return <Dashboard />;
 };
 
 export default page;

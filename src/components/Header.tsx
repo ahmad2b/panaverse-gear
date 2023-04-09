@@ -21,16 +21,16 @@ const Header = () => {
               <Link href="/">Home</Link>
             </div>
             <div className="mx-3 ">
-              <Link href="/">About</Link>
+              <Link href="/about">About</Link>
             </div>
             <div className="mx-3 ">
-              <Link href="/">Courses</Link>
+              <Link href="/courses">Courses</Link>
             </div>
             <div className="mx-3">
               <Link href="/enroll">Enroll</Link>
             </div>
             <div className="mx-3">
-              <Link href="/faq">FAQs</Link>
+              <Link href="/faqs">FAQs</Link>
             </div>
             <div className="mx-3">
               <Link href="/contact">Contact</Link>

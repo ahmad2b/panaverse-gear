@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <section className="flex mt-44 items-center justify-start bg-white">
+    <div className="flex my-28 items-center justify-start bg-white">
       <div className="mx-auto w-full max-w-lg">
         <h1 className="text-6xl font-semibold">Contact us</h1>
         {/* <h1 className="text-4xl font-medium">Contact us</h1> */}
@@ -55,7 +55,7 @@ const Contact = () => {
           </button>
         </form>
       </div>
-    </section>
+    </div>
   );
 };
 

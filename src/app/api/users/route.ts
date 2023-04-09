@@ -5,7 +5,7 @@ export async function GET(request: NextRequest) {
   const conn = postgres({
     ssl: require,
   });
-  const result = await conn.unsafe("SELECT * FROM super_devs");
+  const result = await conn.unsafe("SELECT * FROM users");
   console.log("backend result", result);
   return new NextResponse(JSON.stringify(result));
 }

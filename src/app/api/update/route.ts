@@ -11,24 +11,10 @@ import {
   Insertable,
   Updateable,
 } from "kysely";
-
-interface panaverse_developers {
-  id: Generated<number>;
-  name: string;
-  email: string;
-  password_hash: string;
-  public_name: string;
-  public_email: string;
-  bio: string;
-  profile_picture: string;
-  is_email_public: boolean;
-  is_name_public: boolean;
-  created_at: Date;
-  updated_at: Date;
-}
+import { SuperDevs } from "@/Types";
 
 interface Database {
-  panaverse_developers: panaverse_developers;
+  super_devs: SuperDevs;
 }
 
 const db = new Kysely<Database>({
@@ -47,19 +33,32 @@ export async function POST(request: NextRequest) {
   console.log("Form Data recieved to Update", data);
 
   const result = await db
-    .updateTable("panaverse_developers")
+    .updateTable("super_devs")
     .set({
-      name: data.editedName,
-      email: data.editedEmail,
-      public_name: data.editedPublicName,
-      public_email: data.editedPublicEmail,
-      bio: data.editedBio,
-      is_email_public: data.editedIsEmailPublic,
-      is_name_public: data.editedIsNamePublic,
-      updated_at: new Date(),
+      full_name: data.full_name,
+      username: data.username,
+      email: data.email,
+      password: data.password,
+      profile_picture: data.profile_picture,
+      professional_title: data.professional_title,
+      availability_status: data.availability_status,
+      certifications: data.certifications,
+      education: data.education,
+      github_profile: data.github_profile,
+      linkedin_profile: data.linkedin_profile,
+      location: data.location,
+      phone_number: data.phone_number,
+      work_experience: data.work_experience,
+      personal_website: data.personal_website,
+      preferred_work_types: data.preferred_work_types,
+      projects: data.projects,
+      resume: data.resume,
+      social_media_links: data.social_media_links,
+      summary: data.summary,
+      technical_skills: data.technical_skills,
     })
     .where("id", "=", data.id) // Update only the specific user
-    .returning("panaverse_developers.id")
+    .returning("super_devs.id")
     .execute();
 
   if (result.length > 0) {

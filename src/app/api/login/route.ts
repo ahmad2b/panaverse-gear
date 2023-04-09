@@ -12,14 +12,15 @@ import {
   Updateable,
 } from "kysely";
 
-interface panaverse_developers {
+interface users {
   id: Generated<number>;
-  name: string;
-  password_hash: string;
+  username: string;
+  password: string;
+  role_id: number;
 }
 
 interface Database {
-  panaverse_developers: panaverse_developers;
+  super_devs: users;
 }
 
 export async function POST(
@@ -44,14 +45,22 @@ export async function POST(
 
   // const result = await db.selectFrom("user_details").selectAll().execute();
 
-  const result2 = await db
-    .selectFrom("panaverse_developers")
+  const result = await db
+    .selectFrom("super_devs")
     .selectAll()
-    .where("name", "=", username)
-    .where("password_hash", "=", password)
+    .where("username", "=", username)
+    .where("password", "=", password)
     .limit(1)
     .execute();
 
-  console.log("backend result", JSON.stringify(result2));
-  return new NextResponse(JSON.stringify(result2));
+  if (result) {
+    console.log("USER REGISTERED SUCCESSFULLY");
+    const sessionToken = `${result[0].id}:${result[0].role_id}}`;
+
+    console.log("backend result", JSON.stringify(result));
+    return new NextResponse(JSON.stringify([result, { sessionToken }]));
+  } else {
+    console.log("USER NOT REGISTERED");
+    return new NextResponse(JSON.stringify({ sessionToken: null }));
+  }
 }

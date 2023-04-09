@@ -1,7 +1,8 @@
-import React from "react";
-import Image from "next/image";
-import DarkButton from "@/components/DarkButton";
-import LightButton from "@/components/LightButton";
+import HeroSection from "./HeroSection";
+import Specializations from "./Specializations";
+import WhyChoose from "./WhyChoose";
+import Testimonials from "./Testimonials";
+import Trainers from "./Trainers";
 
 const HomePage = () => {
   return (
@@ -14,47 +15,80 @@ const HomePage = () => {
         buttonTextB="Enroll Now"
         webLinkB="/enroll"
       />
+      <Specializations
+        heading="Specializations"
+        description={`At Panaverse DAO, we offer a diverse range of specializations to cater to your interests and career goals. \n Choose from our six main specializations to start your learning journey.`}
+        cards={SpecializationsArr}
+      />
+      <WhyChoose />
+      <Testimonials />
     </section>
   );
 };
 
 export default HomePage;
 
-interface HeroSectionProps {
+interface WhyPanaverseProps {
   title: string;
   description: string;
-  buttonTextA: string;
-  webLinkA: string;
-  buttonTextB: string;
-  webLinkB: string;
 }
 
-const HeroSection = ({
-  title,
-  description,
-  buttonTextA,
-  webLinkA,
-  buttonTextB,
-  webLinkB,
-}: HeroSectionProps) => {
+const WhyPanaverse = ({ title, description }: WhyPanaverseProps) => {
   return (
-    <div className="flex flex-col items-center justify-center mt-24 ">
-      <div className="  mb-12 opacity-80">
-        <Image
-          src="/screen.png"
-          alt="Panaverse DAO Logo"
-          width={200}
-          height={250}
-        />
-      </div>
-      <div className="text-center">
-        <h1 className="mb-6">{title}</h1>
-        <p className="">{description}</p>
-      </div>
-      <div className="flex items-center justify-center space-x-12 mt-6 ">
-        <LightButton buttonText={buttonTextA} webLink={webLinkA} />
-        <DarkButton buttonText={buttonTextB} webLink={webLinkB} />
-      </div>
+    <div className="flex flex-col items-center justify-center mt-36 text-center">
+      <h2>{title}</h2>
+      <p>{description}</p>
     </div>
   );
 };
+
+interface SpecializationCardProps {
+  title: string;
+  description: string;
+  bgCharacter: string;
+}
+
+const SpecializationsArr: SpecializationCardProps[] = [
+  {
+    title: "Web 3 and Metaverse Specialization",
+    description:
+      "Create immersive, decentralized experiences by combining blockchain technology and 3D metaverse environments in the next-gen internet.",
+    bgCharacter: "⟁",
+    // bgCharacter: "Web3",
+  },
+  {
+    title: "Artificial Intelligence (AI) and Deep Learning Specialization",
+    description:
+      "Harness the power of AI and deep learning to build intelligent APIs and custom TensorFlow models.",
+    bgCharacter: "∮",
+    // bgCharacter: "AI",
+  },
+  {
+    title: "Cloud-Native Computing Specialization",
+    description:
+      "Master containerization and orchestration with Kubernetes and CDK for efficient, scalable cloud-native applications.",
+    bgCharacter: "⧉",
+    // bgCharacter: "CnC",
+  },
+  {
+    title: "Ambient Computing and IoT Specialization",
+    description:
+      "Design smart environments using voice computing, Matter, and embedded devices for interconnected spaces.",
+    bgCharacter: "⌬",
+    // bgCharacter: "IoT",
+  },
+  {
+    title: "Genomics and Bioinformatics Specialization",
+    description:
+      "Analyze and understand genetic data through bioinformatics techniques and essential Python tools.",
+    bgCharacter: "⊚",
+    // bgCharacter: "BI",
+  },
+  {
+    title: "Network Programmability and Automation Specialization",
+    description:
+      "Automate network management tasks by leveraging Linux, Python, APIs, and Git for increased efficiency and agility.",
+    bgCharacter: "⧜",
+    // bgCharacter: "NPA",
+  },
+];
