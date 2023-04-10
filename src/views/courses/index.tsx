@@ -1,11 +1,9 @@
+import PageHeading from "@/components/PageHeading";
+
 const Courses = () => {
   return (
     <section>
-      <div className="bg-black  flex justify-center items-center py-8">
-        <h1 className="text-white text-opacity-50 tracking-wider md:text-7xl p-0">
-          Courses
-        </h1>
-      </div>
+      <PageHeading title={"Courses"} />
       <div className="my-12">
         <h2>Program of Studies</h2>
         <p className="w-8/12">

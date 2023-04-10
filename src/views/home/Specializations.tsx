@@ -44,7 +44,7 @@ const Specializations = ({
         <p>{description}</p>
       </div>
 
-      <div className="flex flex-wrap w-11/12 mx-auto mt-8">
+      <div className="flex flex-wrap  justify-center w-11/12 mx-auto mt-8">
         {cards.map((card, index) => (
           <SpecializationCard
             key={index}

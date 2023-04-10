@@ -1,13 +1,11 @@
 import Image from "next/image";
+import PageHeading from "@/components/PageHeading";
 
 const About = () => {
   return (
     <section>
-      <div className="bg-black  flex justify-center items-center py-8">
-        <h1 className="text-white text-opacity-50 tracking-wider md:text-7xl p-0">
-          About Us
-        </h1>
-      </div>
+      <PageHeading title={"About Us"} />
+
       <div className="flex items-center my-8">
         <div className="my-4 w-6/12">
           <p>
@@ -27,9 +25,9 @@ const About = () => {
             Panaverse DAO is a movement to spread these technolgies globally. It
             is community of Web 3 and Metaverse developers, designers, trainers,
             startup founders and service providers.
-            <p>
-              <br />
-            </p>
+          </p>
+          <br />
+          <p>
             The internet is without a doubt the most important technological
             development in human history. Web3 and metaverse technologies expand
             the internet as we know it by introducing novel features and

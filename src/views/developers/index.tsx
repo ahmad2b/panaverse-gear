@@ -1,7 +1,9 @@
+import PageHeading from "@/components/PageHeading";
+
 const Developers = () => {
   return (
     <section>
-      <h1>Developers</h1>
+      <PageHeading title={"Developers"} />
     </section>
   );
 };
